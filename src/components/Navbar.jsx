@@ -14,16 +14,16 @@ import SidebarSlide from "./SidebarSlide";
 
 const Navbar = () => {
   const usersNavLinks = [
-    { name: "Home", path: "/user" },
+    { name: "Home", path: "/user/home" },
     { name: "Applied Jobs", path: "/user/applied-jobs" },
     { name: "Posted Jobs", path: "/user/posted-jobs" },
   ];
-  const adminNavLinks = [
-    { name: "Home", path: "/admin" },
-    { name: "Manage Users", path: "/admin/manage-users" },
-    { name: "Posted Jobs", path: "/admin/posted-jobs" },
-    { name: "All Applicants", path: "/admin/all-applicants" },
-  ];
+  // const adminNavLinks = [
+  //   { name: "Home", path: "/admin" },
+  //   { name: "Manage Users", path: "/admin/manage-users" },
+  //   { name: "Posted Jobs", path: "/admin/posted-jobs" },
+  //   { name: "All Applicants", path: "/admin/all-applicants" },
+  // ];
   return (
     <>
       <div className="hidden md:flex justify-between items-center p-4 bg-white text-black shadow-sm sticky top-0 z-50 font-lato">

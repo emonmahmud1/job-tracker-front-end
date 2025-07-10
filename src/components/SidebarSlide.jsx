@@ -29,7 +29,7 @@ const SidebarSlide = ({ items }) => {
           </div>
         </div>
 
-        <SheetContent side="left" className="w-[400px]">
+        <SheetContent side="left" className="w-[300px]">
           <SheetHeader>
             <SheetTitle>Admin</SheetTitle>
             <SheetDescription>
@@ -40,7 +40,7 @@ const SidebarSlide = ({ items }) => {
           <div>
             <ul className="space-y-4 border pl-4">
               {items?.map((item) => (
-                <li key={item.title} className="flex items-center space-x-2">
+                <li key={item.name} className="flex items-center space-x-2">
                   <NavLink className="p-2 font-semibold" to={item.path}>
                     {item.name}
                   </NavLink>
