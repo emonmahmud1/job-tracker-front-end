@@ -6,7 +6,11 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const token = localStorage.getItem("token");
-  const { isLoading: meLoading, data: user, refetch  } = useQuery({
+  const {
+    isLoading: meLoading,
+    data: user,
+    refetch,
+  } = useQuery({
     queryKey: ["me"],
     queryFn: async () => {
       const response = await usePrivateAxios.get("/me");
@@ -14,11 +18,14 @@ const AuthProvider = ({ children }) => {
     },
     enabled: !!token,
   });
-  console.log(user);
+  const logout = () => {
+    return localStorage.removeItem("token");
+  };
   const value = {
     meLoading,
     user,
-    refetch
+    refetch,
+    logout,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

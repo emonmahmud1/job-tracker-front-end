@@ -9,9 +9,19 @@ import {
 } from "@/components/ui/sheet";
 import { Home, Inbox, Logs } from "lucide-react";
 import { CgMenuGridO } from "react-icons/cg";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
+import toast from "react-hot-toast";
+import useAuth from "../hooks/useAuth";
+import { Button } from '@/components/ui/button';
 
 const SidebarSlide = ({ items }) => {
+  const { logout } = useAuth();
+  const navigate = useNavigate()
+  const handleLogout = () => {
+    logout();
+    toast.success("Logged out");
+    navigate("/login", { replace: true });
+  };
   return (
     <>
       <Sheet>
@@ -19,7 +29,7 @@ const SidebarSlide = ({ items }) => {
           <div>
             {" "}
             <NavLink className="font-lora font-bold text-xl">
-              Work<span className="text-red-500">Hunt</span>BD
+              Job<span className="text-red-500">Hunt</span>BD
             </NavLink>
           </div>
           <div className="">
@@ -37,7 +47,7 @@ const SidebarSlide = ({ items }) => {
             </SheetDescription>
           </SheetHeader>
 
-          <div>
+          <div className="space-y-3 text-center">
             <ul className="space-y-4 border pl-4">
               {items?.map((item) => (
                 <li key={item.name} className="flex items-center space-x-2">
@@ -47,6 +57,7 @@ const SidebarSlide = ({ items }) => {
                 </li>
               ))}
             </ul>
+            <Button onClick={handleLogout}>Logout</Button>
           </div>
         </SheetContent>
       </Sheet>

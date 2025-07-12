@@ -11,6 +11,7 @@ import AdminLayout from "./layout/AdminLayout";
 import PrivateRoute from "./PrivateRoute";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AuthProvider from "./context/AuthProvider";
+import AllJobs from "./pages/user/AllJobs";
 
 const queryClient = new QueryClient();
 
@@ -23,17 +24,11 @@ ReactDOM.createRoot(root).render(
         <BrowserRouter>
           <Routes>
             <Route path="/login" element={<Login />} />
-            {/* <Route path="/token" element={<PrivateRoute />} /> */}
-            <Route
-              path="/user/home"
-              element={
-                <PrivateRoute allowedRole={["user"]}>
-                  <UserLayout />
-                </PrivateRoute>
-              }
-            >
+            <Route path="/" element={<UserLayout />}>
               <Route index element={<Dashboard />} />
+              <Route path="/all-jobs" element={<AllJobs />} />
             </Route>
+
             <Route
               path="/admin/home"
               element={

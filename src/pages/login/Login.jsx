@@ -20,7 +20,7 @@ const Login = () => {
   const location = useLocation();
   // const from = location?.state?.from?.pathname;
   const { refetch } = useAuth();
-  console.log(location?.state?.from?.pathname);
+  // console.log(location?.state?.from?.pathname);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,21 +35,23 @@ const Login = () => {
       localStorage.setItem("token", response.data.token);
       await refetch();
 
-    const fromPath = location?.state?.from?.pathname;
+      const fromPath = location?.state?.from?.pathname;
 
-    const isAdminRoute = fromPath?.startsWith("/admin");
-    const isUserRoute = fromPath?.startsWith("/user");
+      const isAdminRoute = fromPath?.startsWith("/admin");
+      const isUserRoute = fromPath?.startsWith("/");
 
-  
-    if (fromPath) {
-      if ((role === "admin" && isAdminRoute) || (role === "user" && isUserRoute)) {
-        navigate(fromPath, { replace: true });
+      if (fromPath) {
+        if (
+          (role === "admin" && isAdminRoute) ||
+          (role === "user" && isUserRoute)
+        ) {
+          navigate(fromPath, { replace: true });
+        } else {
+          navigate(role === "admin" ? "/admin/home" : "/", { replace: true });
+        }
       } else {
-        navigate(role === "admin" ? "/admin/home" : "/user/home", { replace: true });
+        navigate(role === "admin" ? "/admin/home" : "/", { replace: true });
       }
-    } else {
-      navigate(role === "admin" ? "/admin/home" : "/user/home", { replace: true });
-    }
       toast.success("Successfully logged in!");
     } catch (error) {
       toast.error(`${error.response?.data.message || "Login failed"}`);
