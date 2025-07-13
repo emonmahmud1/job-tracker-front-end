@@ -12,6 +12,7 @@ import PrivateRoute from "./PrivateRoute";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AuthProvider from "./context/AuthProvider";
 import AllJobs from "./pages/user/AllJobs";
+import JobDetails from "./pages/user/JobDetails";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ ReactDOM.createRoot(root).render(
             <Route path="/" element={<UserLayout />}>
               <Route index element={<Dashboard />} />
               <Route path="/all-jobs" element={<AllJobs />} />
+              <Route path="/job/:id" element={<JobDetails />} />
             </Route>
 
             <Route

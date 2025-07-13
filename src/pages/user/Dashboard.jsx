@@ -5,7 +5,7 @@ import AllJobs from "./AllJobs";
 
 const Dashboard = () => {
   return (
-    <div className="bg-[#f2f2fa] min-h-screen px-5 py-2">
+    <div className="px-5 py-2">
       <h1>user Dashboard</h1>
       <div>
         <Title title="All Jobs" />

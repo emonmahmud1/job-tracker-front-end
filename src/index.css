@@ -14,6 +14,9 @@
   font-style: normal;
    font-optical-sizing: auto;
 }
+.secondary-font-color{
+  color:#656565
+}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
