@@ -24,8 +24,8 @@ const JobCard = ({ job }) => {
         <CardTitle className="text-[#348334]">{job.title}</CardTitle>
         <CardDescription>{job.company}</CardDescription>
       </CardHeader>
-      <CardContent className="space-y-1 border flex justify-between font-lora secondary-font-color">
-        <div className="border border-yellow-400">
+      <CardContent className="space-y-1 flex justify-between font-lora secondary-font-color">
+        <div className="">
           <p className="flex items-center gap-1">
             <MapPin className="w-4" />
             {job.location}
@@ -40,7 +40,7 @@ const JobCard = ({ job }) => {
             {job.salary}
           </p>
         </div>
-        <div className="border border-red-400">
+        <div className="">
           {" "}
           <p className="flex flex-col">
             <span className="flex items-center gap-1 font-semibold">

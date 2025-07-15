@@ -24,14 +24,14 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { user, meLoading, logout } = useAuth();
   const usersNavLinks = [
-    { name: "Home", path: "/user/home" },
-    { name: "Applied Jobs", path: "/user/applied-jobs" },
-    { name: "Posted Jobs", path: "/user/posted-jobs" },
+    { name: "Home", path: "/" },
+    { name: "Applied Jobs", path: "/applied-jobs" },
+    { name: "Posted Jobs", path: "/posted-jobs" },
   ];
   const adminNavLinks = [
-    { name: "Home", path: "/admin" },
+    { name: "Home", path: "/admin/home" },
     { name: "Manage Users", path: "/admin/manage-users" },
-    { name: "Posted Jobs", path: "/admin/posted-jobs" },
+    { name: "Posted Jobs", path: "/admin/home/posted-jobs" },
     { name: "All Applicants", path: "/admin/all-applicants" },
   ];
   const handleLogout = () => {

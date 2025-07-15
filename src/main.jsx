@@ -12,7 +12,8 @@ import PrivateRoute from "./PrivateRoute";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AuthProvider from "./context/AuthProvider";
 import AllJobs from "./pages/user/AllJobs";
-import JobDetails from "./pages/user/JobDetails";
+import JobDetails from "./pages/Common/JobDetails";
+import PostedJobs from "./pages/Common/PostedJobs";
 
 const queryClient = new QueryClient();
 
@@ -27,8 +28,16 @@ ReactDOM.createRoot(root).render(
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<UserLayout />}>
               <Route index element={<Dashboard />} />
-              <Route path="/all-jobs" element={<AllJobs />} />
-              <Route path="/job/:id" element={<JobDetails />} />
+              <Route path="all-jobs" element={<AllJobs />} />
+              <Route path="job/:id" element={<JobDetails />} />
+              <Route
+                path="posted-jobs"
+                element={
+                  <PrivateRoute allowedRole={["user"]}>
+                    <PostedJobs />
+                  </PrivateRoute>
+                }
+              />
             </Route>
 
             <Route
@@ -40,6 +49,15 @@ ReactDOM.createRoot(root).render(
               }
             >
               <Route index element={<DashboardAdmin />} />
+                 <Route
+                path="posted-jobs"
+                element={
+                  <PrivateRoute allowedRole={["admin"]}>
+                    <PostedJobs />
+                  </PrivateRoute>
+                }
+              />
+              
             </Route>
           </Routes>
           <Toaster />
