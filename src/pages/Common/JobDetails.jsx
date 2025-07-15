@@ -27,13 +27,7 @@ const JobDetails = () => {
       return response.data.job;
     },
   });
-  // console.log(data?.postedBy);
-  // if(data?.postedBy ==user?.user.id){
-  //   console.log('matched');
-  // }
-  // else{
-  //   console.log('not matched');
-  // }
+// console.log(data);
 
   const formatDate = (date) =>
     new Date(date).toLocaleDateString("en-GB", {
@@ -101,7 +95,7 @@ const JobDetails = () => {
             </div>
 
             <div className="flex md:justify-end">
-              <JobActions postedBy={data?.postedBy}/>
+              <JobActions jobDetails={data}/>
             </div>
           </div>
         </CardContent>
