@@ -9,7 +9,7 @@ const UserLayout = () => {
       <div className="sticky top-0 z-50">
         <Navbar />
       </div>
-      <div className="my-5">
+      <div className="my-5 min-h-[calc(100vh-150px)]">
         <Outlet />
       </div>
       <div>

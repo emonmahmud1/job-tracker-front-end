@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import usePrivateAxios from "../hooks/usePrivateAxios";
-import Loading from "./Loading";
-import JobCard from "./JobCard";
+import usePrivateAxios from "../../hooks/usePrivateAxios";
+import Loading from "../../components/Loading";
+import JobCard from "../../components/JobCard";
 
 const ManagePostedJobs = () => {
   const { data, isLoading } = useQuery({
