@@ -59,7 +59,7 @@ const JobDetails = () => {
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-2 py-10 md:px-6 border">
+    <div className="max-w-5xl mx-auto px-2 py-10 md:px-6">
       {/* Header Section */}
       <Card className="mb-8 shadow-lg border-none ">
         <CardHeader className="text-center pb-2">
@@ -71,7 +71,7 @@ const JobDetails = () => {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600 border ">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600 ">
             <div className="grid gap-4 grid-cols-1">
               <div className="flex items-center space-x-2">
                 <MapPinIcon className="w-4 h-4 text-gray-500" />
@@ -141,9 +141,6 @@ const JobDetails = () => {
           </div>
         </CardContent>
       </Card>
-      <div className="border border-red-400 fixed bottom-4 right-30 z-50 ">
-        <Button className="">Apply</Button>
-      </div>
     </div>
   );
 };

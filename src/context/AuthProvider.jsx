@@ -19,7 +19,7 @@ const AuthProvider = ({ children }) => {
     enabled: !!token,
   });
   const logout = () => {
-    return localStorage.removeItem("token");
+    localStorage.removeItem("token");
   };
   const value = {
     meLoading,

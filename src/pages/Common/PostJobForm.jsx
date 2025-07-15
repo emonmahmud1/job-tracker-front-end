@@ -76,6 +76,7 @@ const PostJobForm = () => {
   };
 
   return (
+    <div className="w-full">
     <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg">
       <h2 className="text-2xl font-bold text-green-700 mb-6">Post a New Job</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -266,6 +267,7 @@ const PostJobForm = () => {
           </Button>
         </div>
       </form>
+    </div>
     </div>
   );
 };

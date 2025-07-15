@@ -7,7 +7,7 @@ const AdminLayout = () => {
   return (
     <div>
       <Navbar />
-      <div>
+      <div className="my-5 min-h-[calc(100vh-50px)] md:px-5 px-3">
         <Outlet />
       </div>
       <Footer />

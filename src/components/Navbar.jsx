@@ -54,7 +54,11 @@ const Navbar = () => {
                 ? adminNavLinks.map((link) => (
                     <NavigationMenuItem key={link.name}>
                       <NavLink
-                        className="text-black font-bold hover:bg-gray-50 p-2 rounded-sm"
+                        className={({ isActive }) =>
+                          isActive
+                            ? "text-green-600 font-bold p-2 rounded-sm border-b-2 border-green-600"
+                            : "text-black font-bold hover:bg-gray-50 p-2 rounded-sm"
+                        }
                         to={link.path}
                       >
                         {link.name}
@@ -64,7 +68,11 @@ const Navbar = () => {
                 : usersNavLinks.map((link) => (
                     <NavigationMenuItem key={link.name}>
                       <NavLink
-                        className="text-black font-bold hover:bg-gray-50 p-2 rounded-sm"
+                        className={({ isActive }) =>
+                          isActive
+                            ? "text-green-600 font-bold p-2 rounded-sm border-b-2 border-red-500"
+                            : "text-black font-bold hover:bg-gray-50 p-2 rounded-sm"
+                        }
                         to={link.path}
                       >
                         {link.name}
@@ -85,9 +93,20 @@ const Navbar = () => {
             <DropdownMenuContent className="w-56" align="start">
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuGroup>
-                <DropdownMenuItem onClick={handleLogout}>
-                  Logout
-                </DropdownMenuItem>
+                {user?.user ? (
+                  <DropdownMenuItem onClick={handleLogout}>
+                    Logout
+                  </DropdownMenuItem>
+                ) : (
+                  <DropdownMenuItem>
+                    <NavLink
+                      to="/login"
+                      className="px-5 py-2 rounded-md bg-red-400 text-white hover:bg-red-300 hover:text-black"
+                    >
+                      Login
+                    </NavLink>
+                  </DropdownMenuItem>
+                )}
               </DropdownMenuGroup>
             </DropdownMenuContent>
           </DropdownMenu>

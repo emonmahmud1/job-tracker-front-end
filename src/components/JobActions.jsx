@@ -8,7 +8,7 @@ export default function JobActions({ postedBy }) {
   console.log(user?.user?.id);
 
   return (
-    <div className="flex gap-3 mt-6 md:flex-col md:w-20  border">
+    <div className="flex gap-3 mt-6 md:flex-col md:w-20">
       {/* Apply Button */}
       {postedBy !== user?.user?.id && (
         <Button className="bg-green-600 hover:bg-green-700 text-white transition">

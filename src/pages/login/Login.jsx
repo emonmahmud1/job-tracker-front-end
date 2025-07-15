@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -19,9 +19,26 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   // const from = location?.state?.from?.pathname;
-  const { refetch } = useAuth();
+  const { refetch, user } = useAuth();
   // console.log(location?.state?.from?.pathname);
+  const token = localStorage.getItem('token')
+  console.log(user?.user.role);
+  useEffect(() => {
+    if (user) {
+      const fromPath = location?.state?.from?.pathname;
+      const isAdminRoute = fromPath?.startsWith("/admin");
 
+      if (
+        fromPath &&
+        ((user.role === "admin" && isAdminRoute) ||
+          (user.role === "user" && !isAdminRoute))
+      ) {
+        navigate(fromPath, { replace: true });
+      } else {
+        navigate(user.role === "admin" ? "/admin/home" : "/");
+      }
+    }
+  }, [user,token]);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = e.target;

@@ -12,11 +12,11 @@ import { CgMenuGridO } from "react-icons/cg";
 import { NavLink, useNavigate } from "react-router";
 import toast from "react-hot-toast";
 import useAuth from "../hooks/useAuth";
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 
 const SidebarSlide = ({ items }) => {
   const { logout } = useAuth();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleLogout = () => {
     logout();
     toast.success("Logged out");
@@ -51,7 +51,14 @@ const SidebarSlide = ({ items }) => {
             <ul className="space-y-4 border pl-4">
               {items?.map((item) => (
                 <li key={item.name} className="flex items-center space-x-2">
-                  <NavLink className="p-2 font-semibold" to={item.path}>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-green-600 font-bold p-2 rounded-sm border-b-2 border-green-600"
+                        : "text-black font-bold hover:bg-gray-50 p-2 rounded-sm"
+                    }
+                    to={item.path}
+                  >
                     {item.name}
                   </NavLink>
                 </li>
