@@ -14,6 +14,7 @@ import AuthProvider from "./context/AuthProvider";
 import AllJobs from "./pages/user/AllJobs";
 import JobDetails from "./pages/Common/JobDetails";
 import PostedJobs from "./pages/Common/PostedJobs";
+import AppliedJobs from "./pages/user/AppliedJobs";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ ReactDOM.createRoot(root).render(
         <BrowserRouter>
           <Routes>
             <Route path="/login" element={<Login />} />
+
             <Route path="/" element={<UserLayout />}>
               <Route index element={<Dashboard />} />
               <Route path="all-jobs" element={<AllJobs />} />
@@ -35,6 +37,14 @@ ReactDOM.createRoot(root).render(
                 element={
                   <PrivateRoute allowedRole={["user"]}>
                     <PostedJobs />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="applied-jobs"
+                element={
+                  <PrivateRoute allowedRole={["user"]}>
+                    <AppliedJobs />
                   </PrivateRoute>
                 }
               />

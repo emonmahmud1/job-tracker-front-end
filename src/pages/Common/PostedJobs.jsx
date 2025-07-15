@@ -1,6 +1,6 @@
 import React from "react";
 import PostJobForm from "./PostJobForm";
-import ManagePostedJobs from "../../components/ManagePostedJobs";
+import ManagePostedJobs from "./ManagePostedJobs";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const PostedJobs = () => {
